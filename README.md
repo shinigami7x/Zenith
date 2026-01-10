@@ -2,3 +2,7 @@
 
 - /*Desktop Example*/
 ![img1](https://github.com/user-attachments/assets/c28dee58-f878-48e4-b07f-a415eca8c8b4)
+
+- /*TODO*/
+- Create shell script to bootstrap WinGet before batch files are executed
+- Refactor YASB config file to correctly point to user's file directories
