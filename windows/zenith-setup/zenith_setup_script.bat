@@ -1,7 +1,19 @@
 @echo off
-echo Zenith startup script(first boot):
-timeout /t 10 /nobreak
+echo Zenith startup script (first boot):
+ 
+:: ---- Prompt the user to start ----
+choice /C YN /M "Do you want to run the Zenith setup now? (Y/N)"
+if errorlevel 2 (
+    echo User chose not to run the setup. Exiting...
+    exit /b 0
+)
+if errorlevel 1 (
+    echo User confirmed. Starting Zenith setup...
+)
+ 
+:: Optional wait for other post-login tasks
 echo Please wait for post login installs to finish before running this script...
+timeout /t 10 /nobreak
 setlocal EnableExtensions EnableDelayedExpansion
  
 :: ===============================
