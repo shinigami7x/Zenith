@@ -1,4 +1,7 @@
 @echo off
+echo Zenith startup script(first boot):
+timeout /t 10 /nobreak
+echo Please wait for post login installs to finish before running this script...
 setlocal EnableExtensions EnableDelayedExpansion
  
 :: ===============================

@@ -1,5 +1,7 @@
 @echo off
-echo Optional application installs
+echo Optional application installs:
+timeout /t 10 /nobreak
+echo Please wait for the Windows App Runtime SDK to install before selecting any options...
 
 choice /C YN /M "Install Komorebi?"
 if errorlevel 2 goto skip_komorebi
