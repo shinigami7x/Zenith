@@ -13,10 +13,9 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 
     $bundle = "$env:TEMP\winget.msixbundle"
 
-    curl -L https://aka.ms/getwinget -o $bundle
+    invoke-WebRequest -Uri "https://aka.ms/getwinget" -outFile $bundle
 
-    # Install dependency (safe to re-run)
-    Add-AppxPackage https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx
+    if (-Not (Test-Path $bundle)) {throw "Winget bundle not found"}
 
     # Install App Installer
     Add-AppxPackage $bundle
@@ -52,3 +51,4 @@ winget install LGUG2Z.whkd
 winget install --id AmN.yasb
 
 Write-Host "=== Zenith post-install complete ==="
+Read-Host "Press any key to exit"
