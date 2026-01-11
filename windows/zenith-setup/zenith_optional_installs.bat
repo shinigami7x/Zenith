@@ -1,6 +1,10 @@
 @echo off
 echo Optional application installs:
 
+:: ===============================
+:: Zenith optional installs script
+:: ===============================
+
 choice /C YN /M "Install NirCmd?"
 if errorlevel 2 goto skip_nircmd
 winget install -e --id NirSoft.NirCmd
