@@ -56,7 +56,7 @@ widgets:
     options:
       label: "<span>\ue8e5</span>"
       menu_list:
-      - { title: "Autumn", path: "~" }
+      - { title: "FakeProfile", path: "~" }
       - { title: "Download", path: "~\\Downloads" }
       - { title: "Documents", path: "~\\Documents" }
       - { title: "Pictures", path: "~\\Pictures" }
@@ -68,11 +68,11 @@ widgets:
     options:
       label: "{data}"
       app_list:
-        - {icon: C:\Users\\Administrator\Pictures\icons\task_manager_256x256.png, launch: "C:\\WINDOWS\\system32\\Taskmgr.exe", name: "Task Manager"}
-        - {icon: C:\Users\Administrator\Pictures\icons\file_explorer_256x256.png, launch: "C:\\Users\\Administrator\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\File Explorer.lnk", name: "File Explorer"}
-        - {icon: C:\Users\Administrator\Pictures\icons\zen_256x256.png, launch: "C:\\Program Files\\Zen Browser\\zen.exe", name: "Zen Broswer"}
-        - {icon: C:\Users\Administrator\Pictures\icons\spotify_256x256.png, launch: "C:\\Users\\Administrator\\AppData\\Roaming\\Spotify\\Spotify.exe", name: "Spotify"}
-        - {icon: C:\Users\Administrator\Pictures\icons\vsc_256x256.png , launch: "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe", name: "VSCode"}
+        - {icon: C:\Users\\FakeProfile\Pictures\icons\task_manager_256x256.png, launch: "C:\\WINDOWS\\system32\\Taskmgr.exe", name: "Task Manager"}
+        - {icon: C:\Users\FakeProfile\Pictures\icons\file_explorer_256x256.png, launch: "C:\\Users\\FakeProfile\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\File Explorer.lnk", name: "File Explorer"}
+        - {icon: C:\Users\FakeProfile\Pictures\icons\zen_256x256.png, launch: "C:\\Program Files\\Zen Browser\\zen.exe", name: "Zen Broswer"}
+        - {icon: C:\Users\FakeProfile\Pictures\icons\spotify_256x256.png, launch: "C:\\Users\\FakeProfile\\AppData\\Roaming\\Spotify\\Spotify.exe", name: "Spotify"}
+        - {icon: C:\Users\FakeProfile\Pictures\icons\vsc_256x256.png , launch: "C:\\Users\\FakeProfile\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe", name: "VSCode"}
       label_shadow:
         enabled: true
         color: "black"
@@ -82,7 +82,7 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb82\udd77<span>"
-      image_path: "C:\\Users\\Administrator\\Pictures\\wallpapers" 
+      image_path: "C:\\Users\\FakeProfile\\Pictures\\wallpapers" 
       gallery:
           enabled: true
           blur: true
