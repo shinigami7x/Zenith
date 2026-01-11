@@ -14,6 +14,8 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 
     invoke-WebRequest -Uri "https://aka.ms/getwinget" -outFile $bundle
 
+    Add-AppxPackage https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx
+
     if (-Not (Test-Path $bundle)) {throw "Winget bundle not found."}
 
     Add-AppxPackage $bundle
