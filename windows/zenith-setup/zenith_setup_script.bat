@@ -21,6 +21,7 @@ set WORKDIR=%TEMP%\zenith_repo
 set USERDIR=%USERPROFILE%
 set PICDIR=%USERPROFILE%\Pictures
 set YASBDIR=%USERPROFILE%\.config\yasb
+set DTDIR=%USERPROFILE%\Desktop
 set LOG=%TEMP%\zenith_postlogin.log
  
 echo === Zenith setup started %DATE% %TIME% === >> "%LOG%"
@@ -59,6 +60,9 @@ copy /Y "%REPODIR%\windows\komorebi-config\komorebi.json" "%USERDIR%\" >> "%LOG%
 echo Copying YASB configs >> "%LOG%"
 copy /Y "%REPODIR%\windows\yasb-config\config.yaml" "%YASBDIR%\" >> "%LOG%" 2>&1
 copy /Y "%REPODIR%\windows\yasb-config\styles.css" "%YASBDIR%\" >> "%LOG%" 2>&1
+
+echo Copying shell script >> "%LOG%"
+copy /Y "%REPODIR%\windows\zenith-setup\winget_bootstrap.ps1" "%DTDIR%\" >> "%LOG%" 2>&1
  
 echo OK > "%USERDIR%\ZENITH_SETUP_COMPLETED.txt"
 echo === Zenith setup completed %DATE% %TIME% === >> "%LOG%"
