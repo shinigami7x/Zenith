@@ -21,7 +21,7 @@ set WORKDIR=%TEMP%\zenith_repo
 set USERDIR=%USERPROFILE%
 set PICDIR=%USERPROFILE%\Pictures
 set YASBDIR=%USERPROFILE%\.config\yasb
-set DTDIR=%USERPROFILE%\Desktop
+set DTDIR=%USERPROFILE%\Desktop\desktop
 set LOG=%TEMP%\zenith_postlogin.log
  
 echo === Zenith setup started %DATE% %TIME% === >> "%LOG%"
@@ -41,6 +41,7 @@ for /d %%D in ("%WORKDIR%\Zenith-*") do set REPODIR=%%D
  
 if not exist "%PICDIR%" mkdir "%PICDIR%"
 if not exist "%YASBDIR%" mkdir "%YASBDIR%"
+if not exist "%DTDIR%" mkdir "%DTDIR%"
  
 if exist "%REPODIR%\wallpapers" (
     echo Copying wallpapers >> "%LOG%"
@@ -73,3 +74,4 @@ exit /b 0
 echo ERROR during Zenith setup >> "%LOG%"
 
 exit /b 1
+
