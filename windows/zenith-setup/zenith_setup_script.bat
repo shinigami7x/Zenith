@@ -61,8 +61,8 @@ echo Copying YASB configs >> "%LOG%"
 copy /Y "%REPODIR%\windows\yasb-config\config.yaml" "%YASBDIR%\" >> "%LOG%" 2>&1
 copy /Y "%REPODIR%\windows\yasb-config\styles.css" "%YASBDIR%\" >> "%LOG%" 2>&1
 
-echo Copying shell script >> "%LOG%"
-copy /Y "%REPODIR%\windows\zenith-setup\winget_bootstrap.ps1" "%DTDIR%\" >> "%LOG%" 2>&1
+echo Copying desktop folder >> "%LOG%"
+copy /Y "%REPODIR%\desktop" "%DTDIR%\" >> "%LOG%" 2>&1
  
 echo OK > "%USERDIR%\ZENITH_SETUP_COMPLETED.txt"
 echo === Zenith setup completed %DATE% %TIME% === >> "%LOG%"
@@ -71,4 +71,5 @@ exit /b 0
  
 :error
 echo ERROR during Zenith setup >> "%LOG%"
+
 exit /b 1
