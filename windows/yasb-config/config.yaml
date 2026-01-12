@@ -47,7 +47,6 @@ bars:
       right:
       - "media"
       - "wallpapers"
-      - "notifications"
       - "power_menu"
 widgets:
   home:
@@ -195,3 +194,4 @@ widgets:
         hibernate: ["\uf28e", "Hibernate"]
         sleep: ["\u23fe", "Sleep"]
         cancel: ["", "Cancel"]
+
