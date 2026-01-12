@@ -5,10 +5,10 @@
 :: =======================
 
 set "DESKTOP=%USERPROFILE%\Desktop"
-set "PS_SCRIPT=%DESKTOP%\zenith-bootstrap.ps1"
+set "PS_SCRIPT=%DESKTOP%\winget_bootstrap.ps1"
 
 if not exist "%PS_SCRIPT%" (
-    echo ERROR: zenith-bootstrap.ps1 not found on Desktop
+    echo ERROR: winget_bootstrap.ps1 not found on Desktop
     echo Expected path:
     echo %PS_SCRIPT%
     pause
