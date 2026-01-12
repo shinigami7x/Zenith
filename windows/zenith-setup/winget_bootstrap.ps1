@@ -8,24 +8,30 @@ $ProgressPreference = "SilentlyContinue"
 Write-Host "=== Zenith winget bootstrap starting ==="
 
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-    Write-Host "Winget not found, installing..."
 
-    $bundle = "$env:TEMP\winget.msixbundle"
+    $temp = Join-Path $env:TEMP "winget"
+    New-Item -ItemType Directory -Force -Path $temp | Out-Null
 
-    invoke-WebRequest -Uri "https://aka.ms/getwinget" -outFile $bundle
+    $vclibs = Join-Path $temp "Microsoft.VCLibs.x64.14.00.Desktop.appx"
+    $winget = Join-Path $temp "winget.msixbundle"
 
-    Add-AppxPackage https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx
+    Write-Host "Downloading dependencies..."
+    Invoke-WebRequest "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" -OutFile $vclibs
+    Invoke-WebRequest "https://aka.ms/getwinget" -OutFile $winget
 
-    if (-Not (Test-Path $bundle)) {throw "Winget bundle not found."}
+    Write-Host "Installing VCLibs..."
+    Add-AppxPackage -Path $vclibs -ErrorAction Stop
 
-    Add-AppxPackage $bundle
+    Write-Host "Installing Winget..."
+    Add-AppxPackage -Path $winget -ErrorAction Stop
 
     if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-        throw "Winget installation failed."
+        throw "Winget install completed but winget is still unavailable."
     }
 
     Write-Host "Winget installed successfully."
-} else {
+}
+else {
     Write-Host "Winget already present."
 }
 
