@@ -4,15 +4,6 @@
 :: Zenith setup script
 :: ====================
  
-choice /C YN /M "Would you like to clone external Zenith files? (Y/N)"
-if errorlevel 2 (
-    echo User chose not to run the setup. Exiting...
-    exit /b 0
-)
-if errorlevel 1 (
-    echo User confirmed. Starting Zenith setup...
-)
- 
 setlocal EnableExtensions EnableDelayedExpansion
  
 set REPO_ZIP=https://github.com/shinigami7x/Zenith/archive/refs/heads/main.zip
@@ -43,24 +34,24 @@ if not exist "%PICDIR%" mkdir "%PICDIR%"
 if not exist "%YASBDIR%" mkdir "%YASBDIR%"
 if not exist "%DTDIR%" mkdir "%DTDIR%"
  
-if exist "%REPODIR%\wallpapers" (
+if exist "%REPODIR%\images\wallpapers" (
     echo Copying wallpapers >> "%LOG%"
-    xcopy "%REPODIR%\wallpapers" "%PICDIR%\wallpapers" /E /I /Y >> "%LOG%" 2>&1
+    xcopy "%REPODIR%\images\wallpapers" "%PICDIR%\wallpapers" /E /I /Y >> "%LOG%" 2>&1
 )
  
-if exist "%REPODIR%\icons" (
+if exist "%REPODIR%\images\icons" (
     echo Copying icons >> "%LOG%"
-    xcopy "%REPODIR%\icons" "%PICDIR%\icons" /E /I /Y >> "%LOG%" 2>&1
+    xcopy "%REPODIR%\images\icons" "%PICDIR%\icons" /E /I /Y >> "%LOG%" 2>&1
 )
  
 echo Copying komorebi configs >> "%LOG%"
-copy /Y "%REPODIR%\windows\komorebi-config\applications.json" "%USERDIR%\" >> "%LOG%" 2>&1
-copy /Y "%REPODIR%\windows\komorebi-config\komorebi.bar.json" "%USERDIR%\" >> "%LOG%" 2>&1
-copy /Y "%REPODIR%\windows\komorebi-config\komorebi.json" "%USERDIR%\" >> "%LOG%" 2>&1
+copy /Y "%REPODIR%\dotfiles\komorebi\applications.json" "%USERDIR%\" >> "%LOG%" 2>&1
+copy /Y "%REPODIR%\dotfiles\komorebi\komorebi.bar.json" "%USERDIR%\" >> "%LOG%" 2>&1
+copy /Y "%REPODIR%\dotfiles\komorebi\komorebi.json" "%USERDIR%\" >> "%LOG%" 2>&1
  
 echo Copying YASB configs >> "%LOG%"
-copy /Y "%REPODIR%\windows\yasb-config\config.yaml" "%YASBDIR%\" >> "%LOG%" 2>&1
-copy /Y "%REPODIR%\windows\yasb-config\styles.css" "%YASBDIR%\" >> "%LOG%" 2>&1
+copy /Y "%REPODIR%\dotfiles\yasb\config.yaml" "%YASBDIR%\" >> "%LOG%" 2>&1
+copy /Y "%REPODIR%\dotfiles\yasb\styles.css" "%YASBDIR%\" >> "%LOG%" 2>&1
 
 echo Copying desktop folder >> "%LOG%"
 copy /Y "%REPODIR%\desktop" "%DTDIR%\" >> "%LOG%" 2>&1
