@@ -41,7 +41,9 @@ for ($i = 0; $i -lt 10; $i++) {
 }
 
 function Ask-And-Install($Name, $Id) {
-    $response = Read-Host "Install $Name? (y/n)"
+    Write-Host ""
+    Write-Host "Install $Name?"
+    $response = Read-Host "(y/n)"
     if ($response -match '^[Yy]$') {
         winget install --id $Id -e --accept-source-agreements --accept-package-agreements
     }
@@ -57,17 +59,15 @@ winget install LGUG2Z.whkd
 
 winget install --id AmN.yasb
 
+winget install --id Discord.Discord -e --accept-source-agreements --accept-package-agreements
+
+winget install --id Spotify.Spotify -e --accept-source-agreements --accept-package-agreements
+
+winget install --id Microsoft.VisualStudioCode -e --accept-source-agreements --accept-package-agreements
+
 Write-Host "=== Optional installs starting ==="
 
-Ask-And-Install "Discord" "Discord.Discord"
-
-Ask-And-Install "Spotify" "Spotify.Spotify"
-
-Ask-And-Install "Visual Studio Code" "Microsoft.VisualStudioCode"
-
 Ask-And-Install "Microsoft PowerToys" "Microsoft.PowerToys"
-
-Ask-And-Install "NirCmd" "NirSoft.NirCmd"
 
 Write-Host "=== Zenith post-install complete ==="
 
