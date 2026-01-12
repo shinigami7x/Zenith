@@ -76,8 +76,9 @@ winget install --id Microsoft.VisualStudioCode -e --accept-source-agreements --a
 
 Write-Host "=== Optional installs starting ==="
 
-Ask-And-Install "Microsoft PowerToys" "Microsoft.PowerToys"
+# Ask-And-Install "Microsoft PowerToys" "Microsoft.PowerToys"
 
 Write-Host "=== Zenith post-install complete ==="
+
 
 Read-Host "Press any key to exit..."
