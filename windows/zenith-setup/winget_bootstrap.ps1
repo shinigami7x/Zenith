@@ -22,8 +22,11 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Write-Host "Installing VCLibs..."
     Add-AppxPackage -Path $vclibs -ErrorAction Stop
 
-    Write-Host "Installing Winget..."
-    Add-AppxPackage -Path $winget -ErrorAction Stop
+    Write-Host "Installing Winget (binding dependencies)..."
+    Add-AppxPackage `
+    -Path $winget `
+    -DependencyPath $vclibs `
+    -ErrorAction Stop
 
     if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
         throw "Winget install completed but winget is still unavailable."
