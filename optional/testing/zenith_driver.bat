@@ -6,13 +6,11 @@
 
 rem Declare relevant paths
 set "DOCUMENTS=%USERPROFILE%\Documents"
-set "WEB_SCRIPT=%DOCUMENTS%\Zenith\web_downloads.bat"
 set "WINGET_SCRIPT=%DOCUMENTS%\Zenith\winget_bootstrap.ps1"
 set "APP_SCRIPT=%DOCUMENTS%\Zenith\app_installs.ps1"
 set "YASB_SCRIPT=%DOCUMENTS%\Zenith\yasb_bootstrap.bat"
 
 rem Verify that the files exists
-if not exist "%WEB_SCRIPT%" goto :error
 if not exist "%WINGET_SCRIPT%" goto :error
 if not exist "%APP_SCRIPT%" goto :error
 if not exist "%YASB_SCRIPT%" goto :error
@@ -23,6 +21,9 @@ if errorlevel 1 goto :error
 echo Web download script finished running.
 
 echo Please double-click and install the JetBrains Mono Nerd font found on the desktop before continuing...
+pause
+
+echo Please VCLibsRuntime 140.00 is installed before continuing...
 pause
 
 echo Launching winget bootsrap script...
