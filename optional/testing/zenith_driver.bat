@@ -15,15 +15,10 @@ if not exist "%WINGET_SCRIPT%" goto :error
 if not exist "%APP_SCRIPT%" goto :error
 if not exist "%YASB_SCRIPT%" goto :error
 
-echo Launching web download script...
-call "%WEB_SCRIPT%"
-if errorlevel 1 goto :error
-echo Web download script finished running.
-
 echo Please double-click and install the JetBrains Mono Nerd font found on the desktop before continuing...
 pause
 
-echo Please VCLibsRuntime 140.00 is installed before continuing...
+echo Please ensure VCLibsRuntime 140.00 is installed before continuing...
 pause
 
 echo Launching winget bootsrap script...
@@ -50,3 +45,4 @@ rem Error statement must remain at the end of the file
 echo Zenith setup failed.
 pause
 exit /b 1
+
