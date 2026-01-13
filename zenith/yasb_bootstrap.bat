@@ -6,6 +6,9 @@
 
 setlocal EnableDelayedExpansion
 
+rem Enable autostart for YASB
+yasbc enable-autostart
+
 rem Declare relevant paths
 set "CONFIG_PATH=%USERPROFILE%\.config\yasb\config.yaml"
 set "TEMP_FILE=%TEMP%\yasb_config.tmp"
@@ -28,6 +31,7 @@ if errorlevel 1 goto :error
 echo Patched config written.
 
 echo YASB bootstrap completed.
+yasbc reload --silent
 exit /b 0
 
 rem Error statement must remain at the end of the file
