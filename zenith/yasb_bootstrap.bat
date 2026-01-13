@@ -7,7 +7,7 @@
 setlocal EnableDelayedExpansion
 
 rem Enable autostart for YASB
-yasbc enable-autostart
+start "" cmd /c yasbc enable-autostart
 
 rem Declare relevant paths
 set "CONFIG_PATH=%USERPROFILE%\.config\yasb\config.yaml"
@@ -31,7 +31,7 @@ if errorlevel 1 goto :error
 echo Patched config written.
 
 echo YASB bootstrap completed.
-yasbc reload --silent
+start "" cmd /c yasbc reload --silent
 exit /b 0
 
 rem Error statement must remain at the end of the file
@@ -39,3 +39,4 @@ rem Error statement must remain at the end of the file
 echo YASB bootstrap failed.
 pause
 exit /b 1
+
