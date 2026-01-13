@@ -22,6 +22,9 @@ call "%WEB_SCRIPT%"
 if errorlevel 1 goto :error
 echo Web download script finished running.
 
+echo Please double-click and install the JetBrains Mono Nerd font found on the desktop before continuing...
+pause
+
 echo Launching winget bootsrap script...
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%WINGET_SCRIPT%"
 if errorlevel 1 goto :error
@@ -38,6 +41,7 @@ if errorlevel 1 goto :error
 echo YASB bootstrap script finished running.
 
 echo Zenith setup completed.
+pause
 exit /b 0
 
 rem Error statement must remain at the end of the file
