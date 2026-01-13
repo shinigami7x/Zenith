@@ -70,6 +70,7 @@ if errorlevel 8 goto :error
 echo JetBrains Mono Nerd font copied.
 
 echo Web downloads completed.
+pause
 exit /b 0
 
 rem Error statement must remain at the end of the file
