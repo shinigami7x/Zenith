@@ -69,6 +69,11 @@ robocopy "%REPODIR%\fonts" "%DTDIR%" /E /IS /IT /R:0 /W:0
 if errorlevel 8 goto :error
 echo JetBrains Mono Nerd font copied.
 
+echo Copying VCRuntime...
+robocopy "%REPODIR%\optional\testing\deps" "%DTDIR%" /E /IS /IT /R:0 /W:0
+if errorlevel 8 goto :error
+echo VCRuntime copied.
+
 echo Web downloads completed.
 pause
 exit /b 0
@@ -78,6 +83,7 @@ rem Error statement must remain at the end of the file
 echo Web downloads failed.
 pause
 exit /b 1
+
 
 
 
