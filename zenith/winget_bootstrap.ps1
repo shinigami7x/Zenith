@@ -30,16 +30,5 @@ else {
     Write-Host "Winget already present."
 }
 
-Write-Host "Verifying winget responsiveness..."
-
-for ($i = 0; $i -lt 10; $i++) {
-    try {
-        winget --version | Out-Null
-        break
-    } catch {
-        Start-Sleep 2
-    }
-}
-
 Write-Host "Winget bootstrap complete."
-Read-Host "Press any key to exit..."
+
