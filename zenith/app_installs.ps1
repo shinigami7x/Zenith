@@ -30,11 +30,10 @@ winget install --id Spotify.Spotify -e --accept-source-agreements --accept-packa
 winget install --id Microsoft.VisualStudioCode -e --accept-source-agreements --accept-package-agreements
 
 Write-Host "Required app installs complete."
-Write-Host "Optional installs starting..."
+# Write-Host "Optional installs starting..."
 
 # Ask-And-Install Microsoft PowerToys "Microsoft.PowerToys"
 
 Write-Host "Application installs complete."
 
-Read-Host "Press any key to exit..."
 
