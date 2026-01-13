@@ -15,12 +15,6 @@ if not exist "%WINGET_SCRIPT%" goto :error
 if not exist "%APP_SCRIPT%" goto :error
 if not exist "%YASB_SCRIPT%" goto :error
 
-echo Please double-click and install the JetBrains Mono Nerd font found on the desktop before continuing...
-pause
-
-echo Please ensure VCLibsRuntime 140.00 is installed before continuing...
-pause
-
 echo Launching winget bootsrap script...
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%WINGET_SCRIPT%"
 if errorlevel 1 goto :error
@@ -45,4 +39,5 @@ rem Error statement must remain at the end of the file
 echo Zenith setup failed.
 pause
 exit /b 1
+
 
