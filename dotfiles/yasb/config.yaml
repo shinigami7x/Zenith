@@ -157,7 +157,7 @@ widgets:
     options:
       label: "{%a, %d %b %H:%M}"
       label_alt: "{%A, %d %B %Y %H:%M}"
-      timezones: [EDT]
+      timezones: [America/New_York]
       calendar: 
         blur: false
         round_corners: false
@@ -194,5 +194,6 @@ widgets:
         hibernate: ["\uf28e", "Hibernate"]
         sleep: ["\u23fe", "Sleep"]
         cancel: ["", "Cancel"]
+
 
 
