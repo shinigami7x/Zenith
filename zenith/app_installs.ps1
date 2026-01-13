@@ -23,6 +23,8 @@ winget install LGUG2Z.whkd
 
 winget install --id AmN.yasb
 
+winget install --id Zen-Team.Zen-Browser -e --accept-source-agreements --accept-package-agreements
+
 winget install --id Discord.Discord -e --accept-source-agreements --accept-package-agreements
 
 winget install --id Spotify.Spotify -e --accept-source-agreements --accept-package-agreements
@@ -35,5 +37,6 @@ Write-Host "Required app installs complete."
 # Ask-And-Install Microsoft PowerToys "Microsoft.PowerToys"
 
 Write-Host "Application installs complete."
+
 
 
