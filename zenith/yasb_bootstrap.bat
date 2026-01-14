@@ -6,14 +6,21 @@
 
 setlocal EnableDelayedExpansion
 
-rem Enable autostart for YASB
-start "" cmd /c yasbc enable-autostart
+rem Path to YASBC
+set "YASB_CMD=%USERPROFILE%\.local\bin\yasbc.exe"
+
+if not exist "%YASB_CMD%" (
+    echo YASB CLI not found at %YASB_CMD%
+    goto :error
+)
+
+echo Enabling YASB autostart...
+"%YASB_CMD%" enable-autostart || goto :error
 
 rem Declare relevant paths
 set "CONFIG_PATH=%USERPROFILE%\.config\yasb\config.yaml"
 set "TEMP_FILE=%TEMP%\yasb_config.tmp"
 
-rem Verify that the config file exists
 if not exist "%CONFIG_PATH%" goto :error
 
 echo Patching YASB config...
@@ -30,13 +37,14 @@ move /y "%TEMP_FILE%" "%CONFIG_PATH%" >nul
 if errorlevel 1 goto :error
 echo Patched config written.
 
+echo Reloading YASB...
+"%YASB_CMD%" reload --silent
+"%YASB_CMD%" start --silent || goto :error
+
 echo YASB bootstrap completed.
-start "" cmd /c yasbc reload --silent
 exit /b 0
 
-rem Error statement must remain at the end of the file
 :error
 echo YASB bootstrap failed.
 pause
 exit /b 1
-
