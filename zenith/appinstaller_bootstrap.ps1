@@ -1,24 +1,23 @@
-$ErrorActionPreference = "Stop"
-
-$ProgressPreference = "SilentlyContinue"
-
 Write-Host "Winget bootstrap starting..."
 
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 
     $temp = Join-Path $env:TEMP "winget"
-    $winget = Join-Path $temp "winget.msixbundle"
+    if (-not $env:TEMP) { $temp = "C:\Windows\Temp\winget" }
+    $winget = Join-Path $temp "Microsoft.DesktopAppInstaller.msixbundle"
 
     New-Item -ItemType Directory -Force -Path $temp | Out-Null
 
-    Write-Host "Downloading dependencies..."
-
+    Write-Host "Downloading App Installer bundle..."
     Invoke-WebRequest "https://aka.ms/getwinget" -OutFile $winget
 
-    Write-Host "Installing Winget..."
+    if (-not (Test-Path $winget)) { throw "Download failed: winget bundle not found." }
+    if ((Get-Item $winget).Length -eq 0) { throw "Download failed: winget bundle is empty." }
 
-    Add-AppxPackage -Path $winget -InstallAllUsers -ErrorAction Stop
+    Write-Host "Installing Winget..."
+    Add-AppxPackage -Path $winget -ErrorAction Stop
 
     Write-Host "Winget installed successfully."
-
-} else { Write-Host "Winget already present." }
+} else {
+    Write-Host "Winget already present."
+}
