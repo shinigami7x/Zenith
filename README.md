@@ -4,5 +4,4 @@
 ![img1](https://github.com/user-attachments/assets/c28dee58-f878-48e4-b07f-a415eca8c8b4)
 
 - /*TODO*/
-- Add a beta release ISO
 - Add custom default wallpaper
