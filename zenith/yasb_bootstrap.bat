@@ -7,7 +7,7 @@
 setlocal EnableDelayedExpansion
 
 rem Path to YASBC
-set "YASB_CMD=%USERPROFILE%\.local\bin\yasbc.exe"
+set "YASB_CMD=C:\Program Files\YASB\yasbc.exe"
 
 if not exist "%YASB_CMD%" (
     echo YASB CLI not found at %YASB_CMD%
