@@ -3,5 +3,10 @@
 - /*Desktop Example*/
 ![img1](https://github.com/user-attachments/assets/c28dee58-f878-48e4-b07f-a415eca8c8b4)
 
+- /*WIP*/
+- Hide taskbar and desktop icons by default
+- Publish release image v1.0
+
 - /*TODO*/
-- Add custom default wallpaper
+- More app install choices through WinGet script
+- Companion scripts to edit YASB config to reflect user's choices
