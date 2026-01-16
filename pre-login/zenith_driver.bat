@@ -1,8 +1,8 @@
 @echo off
 
-:: =================================
-:: Zenith installation driver script
-:: =================================
+:: ==========================
+:: Zenith Setup Driver Script
+:: ==========================
 
 rem Declare relevant paths
 set "DOCUMENTS=%USERPROFILE%\Documents"
@@ -49,5 +49,6 @@ rem Error statement must remain at the end of the file
 echo Zenith setup failed.
 pause
 exit /b 1
+
 
 
