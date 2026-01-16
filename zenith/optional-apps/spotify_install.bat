@@ -1,7 +1,7 @@
 @echo off
-:: ========================
-:: Zenith Spotify Installer
-:: ========================
+:: =================
+:: Spotify Installer
+:: =================
 
 setlocal enabledelayedexpansion
 
@@ -76,4 +76,5 @@ move /y "%TEMP_FILE%" "%CONFIG_FILE%" >nul || (
 "%YASB_CMD%" reload --silent
 
 echo YASB config patched for spotify.
+
 endlocal
