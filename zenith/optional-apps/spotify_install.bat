@@ -7,8 +7,16 @@ setlocal enabledelayedexpansion
 
 echo Starting Spotify installation...
 
+rem Path to YASBC
+set "YASB_CMD=C:\Program Files\YASB\yasbc.exe"
+
 set "INSTALL_DIR=%TEMP%\spotify"
 mkdir "%INSTALL_DIR%" 2>nul
+
+if not exist "%YASB_CMD%" (
+    echo YASB CLI not found at %YASB_CMD%
+    goto :error
+)
 
 winget download --id Spotify.Spotify --source winget --download-directory "%INSTALL_DIR%" --accept-source-agreements --accept-package-agreements
 if %ERRORLEVEL% NEQ 0 (
@@ -53,7 +61,7 @@ for /f "usebackq delims=" %%A in ("%CONFIG_FILE%") do (
 
     echo !LINE! | findstr /R /C:"^[ ]*label_shadow:" >nul
     if not errorlevel 1 if "!INSERTED!"=="0" (
-        echo(        - {icon: C:\Users\FakeProfile\Pictures\icons\spotify_256x256.png, launch: "C:\\Users\\FakeProfile\\AppData\\Roaming\\Spotify\\Spotify.exe", name: "Spotify"}>>"%TEMP_FILE%"
+        echo(        - {icon: %USERPROFILE%\Pictures\icons\spotify_256x256.png, launch: '%USERPROFILE%\AppData\Roaming\Spotify\Spotify.exe', name: "Spotify"}>>"%TEMP_FILE%"
         set "INSERTED=1"
     )
 
@@ -64,6 +72,8 @@ move /y "%TEMP_FILE%" "%CONFIG_FILE%" >nul || (
     echo Failed to write patched YASB config.
     exit /b 1
 )
+
+"%YASB_CMD%" reload --silent
 
 echo YASB config patched for spotify.
 endlocal
