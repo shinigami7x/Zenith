@@ -58,6 +58,11 @@ robocopy "%REPODIR%\dotfiles\yasb" "%YASBDIR%" /E /IS /IT /R:0 /W:0
 if errorlevel 8 goto :error
 echo YASB dotfiles copied.
 
+echo Copying taskbar setup...
+robocopy "%REPODIR%\nircmd" "%USERDIR%" /E /IS /IT /R:0 /W:0
+if errorlevel 8 goto :error
+echo Taskbar setup copied.
+
 echo Copying Zenith folder...
 robocopy "%REPODIR%\zenith" "%ZDIR%" /E /IS /IT /R:0 /W:0
 if errorlevel 8 goto :error
