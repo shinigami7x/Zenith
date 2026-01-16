@@ -8,7 +8,7 @@ rem Declare relevant paths
 set "DOCUMENTS=%USERPROFILE%\Documents"
 set "APPINSTALLER_SCRIPT=%DOCUMENTS%\Zenith\appinstaller_bootstrap.ps1"
 set "APP_SCRIPT=%DOCUMENTS%\Zenith\app_installs.ps1"
-set "VISUAL_SCRIPT=%DOCUMENTS%\Zenith\yasb_bootstrap.bat"
+set "VISUAL_SCRIPT=%DOCUMENTS%\Zenith\visual_bootstrap.bat"
 set "TASKBAR_SCRIPT=%DOCUMENTS%\Zenith\taskbar_setup.bat"
 set "ACTIVATION_SCRIPT=%DOCUMENTS%\Zenith\windows_activate.ps1"
 
