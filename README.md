@@ -5,7 +5,7 @@
 
 
 - /*WIP*/
-- Publish release image v1.0
+- Publish release image
 
 - /*TODO*/
 - More app install choices through WinGet script
