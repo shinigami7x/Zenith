@@ -1,11 +1,12 @@
 @echo off
 
-:: ==========================
-:: Zenith Setup Driver Script
-:: ==========================
+:: =================================
+:: Zenith installation driver script
+:: =================================
 
 rem Declare relevant paths
 set "DOCUMENTS=%USERPROFILE%\Documents"
+set "ICONS_SCRIPT=%DOCUMENTS%\Zenith\hideicons.ps1"
 set "APPINSTALLER_SCRIPT=%DOCUMENTS%\Zenith\appinstaller_bootstrap.ps1"
 set "APP_SCRIPT=%DOCUMENTS%\Zenith\app_installs.ps1"
 set "VISUAL_SCRIPT=%DOCUMENTS%\Zenith\visual_bootstrap.bat"
@@ -13,11 +14,16 @@ set "TASKBAR_SCRIPT=%DOCUMENTS%\Zenith\taskbar_setup.bat"
 set "ACTIVATION_SCRIPT=%DOCUMENTS%\Zenith\windows_activate.ps1"
 
 rem Verify that the files exists
+if not exist "%ICONS_SCRIPT%" goto :error
 if not exist "%APPINSTALLER_SCRIPT%" goto :error
 if not exist "%APP_SCRIPT%" goto :error
 if not exist "%VISUAL_SCRIPT%" goto :error
 if not exist "%TASKBAR_SCRIPT%" goto :error
 if not exist "%ACTIVATION_SCRIPT%" goto :error
+
+echo Launching icon hiding script...
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%ICON_SCRIPT%" || goto :error
+echo Icon hiding script finished running.
 
 echo Launching AppInstaller bootstrap script...
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%APPINSTALLER_SCRIPT%" || goto :error
@@ -49,6 +55,5 @@ rem Error statement must remain at the end of the file
 echo Zenith setup failed.
 pause
 exit /b 1
-
 
 
