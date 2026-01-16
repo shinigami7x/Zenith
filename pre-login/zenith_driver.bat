@@ -22,7 +22,7 @@ if not exist "%TASKBAR_SCRIPT%" goto :error
 if not exist "%ACTIVATION_SCRIPT%" goto :error
 
 echo Launching icon hiding script...
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%ICON_SCRIPT%" || goto :error
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%ICONS_SCRIPT%" || goto :error
 echo Icon hiding script finished running.
 
 echo Launching AppInstaller bootstrap script...
