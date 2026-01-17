@@ -3,6 +3,10 @@
 - /*Desktop Example*/
 <img width="1024" height="768" alt="overview" src="https://github.com/user-attachments/assets/820d3ed9-724f-43da-882d-f747234d2e52" />
 
+- /*Check Out*/
+- https://github.com/LGUG2Z/komorebi
+- https://github.com/amnweb/yasb
+
 - /*TODO*/
 - More app install choices through WinGet script
 - Companion scripts to edit YASB config to reflect user's choices
